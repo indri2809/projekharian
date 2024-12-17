@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\laporanharian;
 use App\Models\proyek;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -54,7 +55,14 @@ class proyekcontroller extends Controller
     }
     public function show(proyek $proyek): View
     {
-        return view('proyek.show', compact('proyek'))
-            ->with(["title" => "Data proyek"]);
+        $laporanHarian=laporanharian::select('*')
+                                    ->where('proyek_id',$proyek->id)
+                                    ->get();
+        return view('proyek.show')
+            ->with([
+                "title" => "Data proyek",
+                "dataProyek"=>$proyek,
+                "laporanHarian"=>$laporanHarian
+            ]);
     }
 }

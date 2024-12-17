@@ -11,10 +11,30 @@
 @section('judulh1', 'Detail Proyek')
 @section('konten')
 <div class="col-md-12">
+    <!-- Informasi Proyek -->
+    <div class="card shadow-sm mb-3">
+        <div class="card-header bg-info text-white text-center">
+            <h5 class="mb-0"><strong>Informasi Proyek</strong></h5>
+        </div>
+        <div class="card-body">
+            <div class="row mb-2">
+                <div class="col-md-3"><strong>Proyek:</strong></div>
+                <div class="col-md-9">{{ $dataProyek->pekerjaan }}</div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-3"><strong>Pelaksana:</strong></div>
+                <div class="col-md-9">{{ $dataProyek->pelaksana }}</div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-3"><strong>Lokasi:</strong></div>
+                <div class="col-md-9">{{ $dataProyek->lokasi }}</div>
+            </div>
+        </div>
+    </div>
 <div class="card card-info">
         <div class="card-header">
             <h2 class="card-title">Data pekerja</h2>
-            <a type="button" class="btn btn-success float-right" href="{{ route('laporanharian.create') }}">
+            <a type="button" class="btn btn-success float-right" href="{{ route('laporanharian.create',$dataProyek->id) }}">
                 <i class=" fas fa-plus"></i> Tambah data
             </a>
         </div>
@@ -24,27 +44,28 @@
                     <tr>
                         <th>No</th>
                         <th>Tanggal</th>
-                        <th>Mandor</th>
-                        <th>Kepala Tukang</th>
-                        <th>Tukang</th>
-                        <th>Pekerja</th>
-                        <th>Cuaca Siang</th>
-                        <th>Cuaca Sore</th>
-                        <th>Cuaca Malam</th>
+                        <th>Aksi</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($laporanHarian as $dt)
                     <tr>
-                        <td>1</td>
-                        <td>{{ $proyek->tanggal }}</td>
-                        <td>{{ $proyek->mandor }}</td>
-                        <td>{{ $proyek->kepala_tukang }}</td>
-                        <td>{{ $proyek->tukang }}</td>
-                        <td>{{ $proyek->pekerja }}</td>
-                        <td>{{ $proyek->cuaca_siang }}</td>
-                        <td>{{ $proyek->cuaca_sore }}</td>
-                        <td>{{ $proyek->cuaca_malam }}</td>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $dt-> tanggal }}</td>
+                        <td>
+                                <a type="button" class="btn btn-warning" href="#">
+                                  <i class="fas fa-edit"></i>
+                                </a>
+                                <a type="button" class="btn btn-success" href="#">
+                                <i class="fas fa-eye"></i>
+                                </a>
+
+                                
+                            </div>
+                        </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

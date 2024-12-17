@@ -13,4 +13,4 @@ Route::get('/', function () {
     ]);
     });
 Route::resource('proyek',proyekcontroller::class);
-Route::resource('laporanharian',laporanhariancontroller::class)->except('destroy','create','show','update','edit');
+Route::get('lapharian/{id}',[laporanhariancontroller::class,'create'])->name('laporanharian.create');

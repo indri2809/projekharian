@@ -13,7 +13,7 @@
     <div class="card card-info">
         <div class="card-header">
             <h2 class="card-title">Data Proyek</h2>
-            <a type="button" class="btn btn-success float-right" href="{{ route('') }}">
+            <a type="button" class="btn btn-success float-right" href="{{ route('laporanharian.create') }}">
                 <i class=" fas fa-plus"></i> Tambah Proyek
             </a>
         </div>
@@ -28,9 +28,9 @@
                         <th>Kepala Tukang</th>
                         <th>Tukang</th>
                         <th>Pekerja</th>
-                        <th>Cuaca Siang</th>
-                        <th>Cuaca Sore</th>
-                        <th>Cuaca Malam</th>
+                        <th>Jam Siang</th>
+                        <th>Jam Sore</th>
+                        <th>Jam Malam</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,7 +67,7 @@
     </div>
 </div>
 @endsection
-@section('tambahanJS')
+@section('tambahanJS') 
 <!-- DataTables  & Plugins -->
 <script src="plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
