@@ -50,43 +50,74 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Pekerjaan</td>
+                        <td>Pekerjaan 
+                        <a type="button" class="btn btn-success float-right" href="">
+                <i class=" fas fa-plus"></i> 
+            </a>
+                        </td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>Tenaga Kerja</td>
+                        <td>Tenaga Kerja
+                        <a type="button" class="btn btn-success float-right" href="">
+                <i class=" fas fa-plus"></i> 
+            </a>
+                        </td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>Peralatan</td>
+                        <td>Peralatan
+                        <a type="button" class="btn btn-success float-right" href="">
+                <i class=" fas fa-plus"></i> 
+            </a>
+                        </td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td>4</td>
-                        <td>Bahan</td>
+                        <td>Bahan
+                        <a type="button" class="btn btn-success float-right" href="">
+                <i class=" fas fa-plus"></i> 
+            </a>
+                        </td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td>5</td>
-                        <td>Cuaca</td>
+                        <td>Cuaca
+                        <a type="button" class="btn btn-success float-right" href="">
+                <i class=" fas fa-plus"></i> 
+            </a>
+                        </td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td>6</td>
-                        <td>Masalah</td>
+                        <td>Masalah
+                        <a type="button" class="btn btn-success float-right" href="">
+                <i class=" fas fa-plus"></i> 
+            </a>
+                        </td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td>7</td>
-                        <td>Perintah</td>
+                        <td>Perintah
+                        <a type="button" class="btn btn-success float-right" href="">
+                <i class=" fas fa-plus"></i> 
+            </a>
+                        </td>
                         <td>&nbsp;</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        
+    </div>
+    <div class="card-footer text-center">
+    <a href="{{ url()->previous() }}" class="btn btn-primary">
+    <i class="fas fa-arrow-left"></i>Kembali</a>
     </div>
 </div>
 @endsection

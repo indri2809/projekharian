@@ -15,6 +15,36 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css')}}">
 </head>
+<style>
+    .main-sidebar {
+        background: linear-gradient(45deg,rgb(78, 200, 127), #8f94fb); /* Gradien warna */
+        color: white;
+    }
+    .main-sidebar .brand-link {
+        background-color: rgba(255, 255, 255, 0.1); /* Semi-transparan */
+        color: white;
+        text-align: center;
+    }
+    .main-sidebar .brand-link:hover {
+        background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
+    }
+    .main-sidebar .nav-sidebar .nav-link {
+        color: white;
+    }
+    .main-sidebar .nav-sidebar .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.2); /* Active state */
+        color: #fff;
+        border-left: 4px solid #ffcc00; /* Highlight active menu */
+    }
+    .main-sidebar .nav-sidebar .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1); /* Hover effect */
+        color: #ffcc00; /* Highlight text */
+    }
+    .main-sidebar .nav-icon {
+        color: white; /* Ikon warna putih */
+    }
+</style>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
@@ -34,78 +64,60 @@
                 </li>
                 <li class="nav-item dropdown">
    <a class="nav-link" data-toggle="dropdown" href="#">
-      <i class="far fa-user mr-2"></i>
-      <span class="badge badge-warning navbar-badge"></span>
+     
    </a>
-   <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <span class="dropdown-item dropdown-header">User Menu</span>
-             <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                 <i class="fas fa-user mr-2"></i> 
-             <span class="float-right text-muted text-sm"></span>
-             </a>
-                       
-             <div class="dropdown-divider"></div>
-              <form action="logout" method="POST">
-               @csrf
-          		<button type="submit" class="dropdown-item">
-<i class="fas fa-sign-out-alt mr-2"></i>Logout
-</button>
-             </form>
-            </div>
+   
 </li>
             </ul>
         </nav>
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="{{ asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">laporanharian</span>
-            </a>
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="{{ asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
-                            alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Eka Mas Tunggal</a>
-                    </div>
-                </div>
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="/" class="nav-link {{ ($title==='Dashboard')?'active':'' }}">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard
-                                </p>
-                            </a>
-                        </li>
-                       
-                        <li class="nav-item">
-                            <a href="{{route('proyek.index')}}" class="nav-link {{($title==='Proyek')?'active':''}}">
-                                <i class="nav-icon fas fa-boxes"></i>
-                                <p>
-                                   Proyek
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link text-center">
+        <img src="{{ asset('dist/img/emt.jpeg') }}" alt="AdminLTE Logo" 
+            class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-bold">Laporan Harian</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
-            <!-- /.sidebar -->
-        </aside>
+            <div class="info">
+                <a href="#" class="d-block font-weight-bold">Eka Mas Tunggal</a>
+              
+            </div>
+        </div>
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="/" class="nav-link {{ ($title==='Dashboard') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('proyek.index') }}" class="nav-link {{ ($title==='Proyek') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-project-diagram"></i>
+                        <p>Proyek</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{ ($title==='Lampiran') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-paperclip"></i>
+                        <p>Lampiran</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->

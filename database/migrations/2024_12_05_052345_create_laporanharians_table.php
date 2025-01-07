@@ -19,10 +19,12 @@ return new class extends Migration
             $table->string('kepala_tukang');
             $table->string('tukang');
             $table->string('pekerja');
-            $table->time('cuaca_siang');
-            $table->time('cuaca_sore');
-            $table->time('cuaca_malam');
+            $table->string('cuaca_siang');
+            $table->string('cuaca_sore');
+            $table->string('cuaca_malam');
             $table->timestamps();
+
+            $table->foreign('proyek_id')->references('id')->on('proyeks')->onDelete('cascade');
         });
     }
 

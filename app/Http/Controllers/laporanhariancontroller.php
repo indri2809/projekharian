@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 
 class laporanhariancontroller extends Controller
 {
+
     public function create($proyek_id):View
     {
         //cari data laporanharian pada tanggal hari ini
