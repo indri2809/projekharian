@@ -8,6 +8,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\laporanharian;
 use App\Http\Controllers\Controller;
+use App\Models\pekerjaan;
 use Illuminate\Http\RedirectResponse;
 
 class laporanhariancontroller extends Controller
@@ -41,12 +42,20 @@ class laporanhariancontroller extends Controller
         }
     
         $data_proyek=proyek::find($proyek_id);
-         
+        $laporan_harian=laporanharian::select('*')
+                                         ->whereDate('created_at',$tgl_hari_ini)
+                                         ->get()
+                                         ->toArray();
+
+        $data_pekerjaan=pekerjaan::select('keterangan')->where('laporanharian_id',$laporan_harian[0]['id'])->get();
         return view('laporanharian.create',[
             "data_proyek"=>$data_proyek,
             "title"=>"Laporan Harian",
-            "tanggal"=>Carbon::parse($tanggal)->isoFormat('dddd, D MMMM Y')
-    
+            "tanggal"=>Carbon::parse($tanggal)->isoFormat('dddd, D MMMM Y'),
+            "laporan_harian_id"=>$laporan_harian[0]['id'],
+            "data_pekerjaan"=>$data_pekerjaan,
+            "laporan_harian"=>$laporan_harian,
+            
         ]);
     }
 }

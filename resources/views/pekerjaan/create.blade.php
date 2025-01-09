@@ -1,7 +1,9 @@
 @extends('layouts.template')
+
 @section('judulh1', 'Admin - Proyek')
+
 @section('konten')
-<div class="col-md-6">
+<div class="col-md-8 mx-auto">
     @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -12,30 +14,28 @@
         </ul>
     </div>
     @endif
-    <div class="card card-success">
-        <div class="card-header">
-            <h3 class="card-title">Tambah laporan</h3>
+ 
+    <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header bg-success text-white text-center">
+            <h3 class="card-title mb-0">Masukan data pekerjaan</h3>
         </div>
-        <!-- /.card-header -->
-        <!-- form start -->
-        <form action="{{ route('proyek.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('pekerjaan.store') }}" method="POST">
             @csrf
             <div class="card-body">
+                <input type="hidden" name="laporanharian_id" id="laporanharian_id" value="{{$laporanharian_id}}">
                 <div class="form-group">
-                    <label for="pekerjaan">Pekerjaan</label>
+                    <label for="pekerjaan" class="font-weight-bold">Jenis Pekerjaan</label>
                     <input 
                         type="text" 
-                        class="form-control" 
-                        id="pekerjaan" 
-                        name="pekerjaan" 
-                        placeholder="Masukkan jenis pekerjaan"
+                        class="form-control rounded-pill shadow-sm" 
+                        id="keterangan" 
+                        name="keterangan" 
+                        placeholder="Masukkan jenis pekerjaan" 
                         value="{{ old('pekerjaan') }}">
                 </div>
-               
-                       
-            <!-- /.card-body -->
-            <div class="card-footer">
-                <button type="submit" class="btn btn-success float-right">Simpan</button>
+            </div>
+            <div class="card-footer text-center bg-light">
+                <button type="submit" class="btn btn-success rounded-pill px-4">Simpan</button>
             </div>
         </form>
     </div>

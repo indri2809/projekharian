@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class laporanharian extends Model
 {
     use HasFactory;
-    protected $fillable=['proyek_id','tannggal','mandor','kepala_tukang','tukang','pekerja','cuaca_singa','cuaca_siang','cuaca_sore','cuaca_malam'];
+    protected $fillable=['proyek_id','tanggal','mandor','kepala_tukang','tukang','pekerja','cuaca_singa','cuaca_siang','cuaca_sore','cuaca_malam'];
 }
